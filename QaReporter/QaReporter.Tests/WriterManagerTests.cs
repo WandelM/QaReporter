@@ -9,12 +9,14 @@ public class WriterManagerTests
 {
     private IRecordWriter mockWriterPrimary;
     private IRecordWriter mockWriterSecondary;
+    private IRecordWriter mockWriterTertiary;
     private WriterManager manager;
 
     public WriterManagerTests()
     {
         mockWriterPrimary = new MockFileWriter();
         mockWriterSecondary = new MockFileWriter();
+        mockWriterTertiary = new MockJsonWriter();
     }
 
     [SetUp]
@@ -52,6 +54,15 @@ public class WriterManagerTests
         manager.Register(mockWriterSecondary);
 
         Assert.That(manager.Writers.Count, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void UserShouldBeAbleToRegisterMultipleWriters()
+    {
+        manager.Register(mockWriterPrimary);
+        manager.Register(mockWriterTertiary);
+
+        Assert.That(manager.Writers.Count, Is.EqualTo(2));
     }
 
     [Test]

@@ -6,6 +6,7 @@
 public interface IRecordWriter
 {
     string WriterName { get; }
+    string WritePath { get; }
     void Write(ReportRecord reportRecord);
     Task WriteAsync(ReportRecord reportRecord);
 }

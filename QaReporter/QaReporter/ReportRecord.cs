@@ -33,12 +33,37 @@ public class ReportRecord
     public IReadOnlyList<StepInfo> Steps => _steps;
     private List<StepInfo> _steps;
 
+    /// <summary>
+    /// Additional parameters added to the test
+    /// </summary>
+    public IReadOnlyDictionary<string, string> CustomParampeters => _customParameters;
+    private Dictionary<string, string> _customParameters;
+
+    /// <summary>
+    /// Creates new test recort and starts the test execution
+    /// </summary>
+    /// <param name="testInfo"></param>
     public ReportRecord(TestInfo testInfo)
     {
         TestInfo = testInfo;
         StartDate = DateTime.UtcNow;
         _steps = new List<StepInfo>();
         EndDate = default;
+        _customParameters = new Dictionary<string, string>();
+    }
+
+    /// <summary>
+    /// Creates new test recort and starts the test execution
+    /// </summary>
+    /// <param name="testInfo"></param>
+    /// <param name="customParameters">Additioanal parameters added to execution</param>
+    public ReportRecord(TestInfo testInfo, Dictionary<string, string> customParameters)
+    {
+        TestInfo = testInfo;
+        StartDate = DateTime.UtcNow;
+        _steps = new List<StepInfo>();
+        EndDate = default;
+        _customParameters = customParameters;
     }
 
     /// <summary>
@@ -79,6 +104,36 @@ public class ReportRecord
     {
         var stepInfo = new StepInfo(instructions.StepId, instructions.Instruction, instructions.ExpectedResult, timestamp, stepStatus);
         _steps.Add(stepInfo);
+    }
+
+    /// <summary>
+    /// Adds evidence into the step, if step does not exist then evidence will not be added
+    /// </summary>
+    /// <param name="stepId"></param>
+    /// <param name="stepEvidence"></param>
+    public void AddStepEvidence(string stepId, EvidenceInfo stepEvidence)
+    {
+        var step = _steps.FirstOrDefault(s => s.Id == stepId);
+
+        if (step == null)
+            return;
+
+        step.AddEvidence(stepEvidence);
+    }
+
+    /// <summary>
+    /// Adds evidence into the step, if step does not exist then evidence will not be added
+    /// </summary>
+    /// <param name="stepId"></param>
+    /// <param name="stepEvidence"></param>
+    public void AddStepEvidences(string stepId, IReadOnlyList<EvidenceInfo> stepEvidences)
+    {
+        var step = _steps.FirstOrDefault(s => s.Id == stepId);
+
+        if (step == null)
+            return;
+
+        step.AddEvidences(stepEvidences);
     }
 
     /// <summary>
