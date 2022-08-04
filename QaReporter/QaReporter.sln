@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QaReporter.Tests", "QaReporter.Tests\QaReporter.Tests.csproj", "{5EA8F1EF-E1CB-4DB4-8288-FFB278A33D03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QaReporter.Tests", "QaReporter.Tests\QaReporter.Tests.csproj", "{5EA8F1EF-E1CB-4DB4-8288-FFB278A33D03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E4242FE4-DA4D-4F7A-A7BB-47E73B26C0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QaReporter", "QaReporter\QaReporter.csproj", "{8815EC4F-6F20-44D3-9455-88D062BF9D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QaReporter", "QaReporter\QaReporter.csproj", "{8815EC4F-6F20-44D3-9455-88D062BF9D20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QaReporter.HtmlWriter", "QaReporter.HtmlWriter\QaReporter.HtmlWriter.csproj", "{00A10E99-15DC-40D2-82E5-1C04193CEC79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +25,17 @@ Global
 		{8815EC4F-6F20-44D3-9455-88D062BF9D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8815EC4F-6F20-44D3-9455-88D062BF9D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8815EC4F-6F20-44D3-9455-88D062BF9D20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A10E99-15DC-40D2-82E5-1C04193CEC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A10E99-15DC-40D2-82E5-1C04193CEC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A10E99-15DC-40D2-82E5-1C04193CEC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A10E99-15DC-40D2-82E5-1C04193CEC79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8815EC4F-6F20-44D3-9455-88D062BF9D20} = {E4242FE4-DA4D-4F7A-A7BB-47E73B26C0C7}
+		{00A10E99-15DC-40D2-82E5-1C04193CEC79} = {E4242FE4-DA4D-4F7A-A7BB-47E73B26C0C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56FB2C80-48C2-4F8B-8D0D-B7662A8BF0AE}

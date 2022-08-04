@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QaReporter.HtmlWriter\QaReporter.HtmlWriter.csproj" />
     <ProjectReference Include="..\QaReporter\QaReporter.csproj" />
   </ItemGroup>
 
