@@ -1,10 +1,30 @@
-﻿namespace QaReporter.HtmlWriter;
+﻿using QaReporter.HtmlWriter.Abstractions;
 
-public class HtmlReportTemplate: IHtmlSectionRenderer
+namespace QaReporter.HtmlWriter;
+
+/// <summary>
+/// Rendets html report body
+/// </summary>
+public class HtmlReportRenderer: IHtmlSectionRenderer
 {
+    /// <summary>
+    /// Name of the test
+    /// </summary>
     public string TestName { get; }
-    public string StepsTemplate { get; }
-    public string TestInfoTemplate { get; }
+
+    /// <summary>
+    /// Rendered steps
+    /// </summary>
+    public string Steps { get; }
+
+    /// <summary>
+    /// Rebdered test info
+    /// </summary>
+    public string TestInfo { get; }
+
+    /// <summary>
+    /// Styles used in the report
+    /// </summary>
     public string CssStyles { get; }
 
     public string Render()
@@ -21,20 +41,20 @@ public class HtmlReportTemplate: IHtmlSectionRenderer
                 </head>
                 <body>
                     <div id = 'test-info'>
-                        {TestInfoTemplate}
+                        {TestInfo}
                     </div>
                     <div id = 'steps'>
-                        {StepsTemplate}
+                        {Steps}
                     </div>
                 </body>
             </html>";
     }
 
-    public HtmlReportTemplate(string testName, string testInoTemplate, string stepsTemplate, string cssStyles)
+    public HtmlReportRenderer(string testName, string testInoTemplate, string stepsTemplate, string cssStyles)
     {
         TestName = testName;
-        StepsTemplate = stepsTemplate;
-        TestInfoTemplate = testInoTemplate;
+        Steps = stepsTemplate;
+        TestInfo = testInoTemplate;
         CssStyles = cssStyles;
     }
 }

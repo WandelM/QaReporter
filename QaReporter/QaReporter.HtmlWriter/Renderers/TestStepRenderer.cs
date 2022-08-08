@@ -1,8 +1,12 @@
-﻿using System.Text;
+﻿using QaReporter.HtmlWriter.Abstractions;
+using System.Text;
 
 namespace QaReporter.HtmlWriter;
 
-public class TestStepTemplate: IHtmlSectionRenderer
+/// <summary>
+/// Steps renderer
+/// </summary>
+public class TestStepRenderer : IHtmlSectionRenderer
 {
     public string Render()
     {
@@ -39,10 +43,13 @@ public class TestStepTemplate: IHtmlSectionRenderer
         return stepBuilder.ToString();
     }
 
-    public TestStepTemplate(IReadOnlyList<TestStep> testSteps)
+    public TestStepRenderer(IReadOnlyList<TestStep> testSteps)
     {
         TestSteps = testSteps;
     }
 
+    /// <summary>
+    /// Steps associated with test
+    /// </summary>
     public IReadOnlyList<TestStep> TestSteps { get; }
 }

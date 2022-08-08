@@ -1,5 +1,8 @@
 ﻿namespace QaReporter.HtmlWriter
 {
+    /// <summary>
+    /// Screenshot model
+    /// </summary>
     public class StepScreenshot
     {
         public StepScreenshot(string fileName, string base64StrinScreenshot)

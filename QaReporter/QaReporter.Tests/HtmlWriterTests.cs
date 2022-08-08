@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using QaReporter.HtmlWriter;
+using QaReporter.HtmlWriter.Mappers;
 using QaReporter.Models;
 using System;
 using System.IO;
@@ -32,7 +33,7 @@ namespace QaReporter.Tests
         [Test]
         public void WritersShouldNotBeNull()
         {
-            var writer = new HtmlWriter.HtmlWriter(Directory.GetCurrentDirectory());
+            var writer = new HtmlWriter.HtmlWriter(Directory.GetCurrentDirectory(), RecordMapper.Instance);
 
             writer.Write(_record);
         }

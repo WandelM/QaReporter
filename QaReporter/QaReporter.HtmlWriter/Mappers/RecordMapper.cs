@@ -1,8 +1,11 @@
 ﻿namespace QaReporter.HtmlWriter.Mappers;
 
-public class RecordMapper
-{ 
-    public HtmlReportTemplate Map(ReportRecord reportRecord)
+/// <summary>
+/// Simple mapper used to map ReportRecord into HtmlReportRendere, which will later render report
+/// </summary>
+public class RecordMapper : IRecordMapper<HtmlReportRenderer>
+{
+    public HtmlReportRenderer Map(ReportRecord reportRecord)
     {
         var testInfo = new TestInfoBuilder()
             .WithTestName(reportRecord.TestInfo.TestName)
@@ -17,7 +20,7 @@ public class RecordMapper
             .Select(s => new TestStep(s.Id, s.Instruction, s.ExpectedResult, s.Evidences
                                                                               .Select(e => new StepScreenshot(e.FileName, e.Base64Screenshot)).ToList())).ToList();
 
-        var testSteps = new TestStepTemplate(mappedSteps);
+        var testSteps = new TestStepRenderer(mappedSteps);
 
         var reportBuilded = HtmlReportBuilder.Create()
             .WithTestName(reportRecord.TestInfo.TestName)
@@ -27,4 +30,6 @@ public class RecordMapper
 
         return reportBuilded;
     }
+
+    public static RecordMapper Instance => new RecordMapper();
 }

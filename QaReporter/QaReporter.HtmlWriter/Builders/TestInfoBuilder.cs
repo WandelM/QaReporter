@@ -1,5 +1,8 @@
 ﻿namespace QaReporter.HtmlWriter;
 
+/// <summary>
+/// Builder for test info
+/// </summary>
 public class TestInfoBuilder
 {
     public string Build()

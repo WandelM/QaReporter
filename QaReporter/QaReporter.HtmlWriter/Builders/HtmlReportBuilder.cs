@@ -23,12 +23,12 @@ public class HtmlReportBuilder
         CssStyles = String.Empty;
     }
 
-    public HtmlReportTemplate Build()
+    public HtmlReportRenderer Build()
     {
         if (string.IsNullOrEmpty(TestName) || string.IsNullOrEmpty(StepsTemplate) || string.IsNullOrEmpty(TestInfoTemplate))
             throw new Exception("One of the members ware empty");
 
-        var htmlReportTemplate = new HtmlReportTemplate(TestName, TestInfoTemplate, StepsTemplate, CssStyles);
+        var htmlReportTemplate = new HtmlReportRenderer(TestName, TestInfoTemplate, StepsTemplate, CssStyles);
 
         return htmlReportTemplate;
     }

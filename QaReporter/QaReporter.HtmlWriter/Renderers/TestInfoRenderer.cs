@@ -1,8 +1,12 @@
-﻿using System.Text;
+﻿using QaReporter.HtmlWriter.Abstractions;
+using System.Text;
 
 namespace QaReporter.HtmlWriter;
 
-public class TestInfoRenderer: IHtmlSectionRenderer
+/// <summary>
+/// Renderer for test info section
+/// </summary>
+public class TestInfoRenderer : IHtmlSectionRenderer
 {
     public string Render()
     {
