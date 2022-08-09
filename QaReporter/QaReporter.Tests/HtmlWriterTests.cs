@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using QaReporter.HtmlWriter;
 using QaReporter.HtmlWriter.Mappers;
 using QaReporter.Models;
 using System;

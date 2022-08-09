@@ -25,6 +25,17 @@ public static class MarkupHelper
     }
 
     /// <summary>
+    /// Renders h1 with id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="content"></param>
+    /// <returns></returns>
+    public static string Heading1(string id, string content)
+    {
+        return $"<h1 id=\"{id}\">{content}</h1>";
+    }
+
+    /// <summary>
     /// Renders image
     /// </summary>
     /// <param name="base64String"></param>
@@ -32,6 +43,6 @@ public static class MarkupHelper
     /// <returns></returns>
     public static string ImageBase64(string base64String, string? fileName = null)
     {
-        return $"<img style=\"max-width: 1400px\" alt=\"{fileName}\" src=\"data:image/png;base64,{base64String}\"\\>";
+        return $"<img alt=\"{fileName}\" src=\"data:image/png;base64,{base64String}\"/>";
     }
 }

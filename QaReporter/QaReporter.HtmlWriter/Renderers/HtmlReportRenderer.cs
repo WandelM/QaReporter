@@ -37,9 +37,11 @@ public class HtmlReportRenderer: IHtmlSectionRenderer
                     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
                     <meta name = 'viewport' content='width=device-width, initial-scale=1.0'>
                     <title>{TestName}</title>
-                    <styles>{CssStyles}</styles>
+                    <style>{CssStyles}</style>
                 </head>
                 <body>
+                    {MarkupHelper.Heading1("test-title", TestName)}
+                    {MarkupHelper.HorizontalLine()}
                     <div id = 'test-info'>
                         {TestInfo}
                     </div>

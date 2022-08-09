@@ -11,16 +11,15 @@ public class TestInfoRenderer : IHtmlSectionRenderer
     public string Render()
     {
         var testInfoBuilder = new StringBuilder();
-
-        testInfoBuilder.AppendLine($"<p>Test Key: {TestKey}</p>");
-        testInfoBuilder.AppendLine($"<p>Test Name: {TestName}</p>");
-        testInfoBuilder.AppendLine($"<p>Start Date: {StartDate}</p>");
-        testInfoBuilder.AppendLine($"<p>Finish Date: {EndDate}</p>");
-        testInfoBuilder.AppendLine($"<p>Status: {Status}</p>");
+        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Test Key: {TestKey}"));
+        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Test Name: {TestName}"));
+        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Start Date: {StartDate})"));
+        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Finish Date: {EndDate}"));
+        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Status: {Status}"));
 
         if (AdditionalInfo != null)
             foreach (var item in AdditionalInfo)
-                testInfoBuilder.AppendLine($"<p>{item.Key}: {item.Value}</p>");
+                testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"{item.Key}: {item.Value}"));
 
 
         return testInfoBuilder.ToString();

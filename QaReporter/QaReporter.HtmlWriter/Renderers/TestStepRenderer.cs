@@ -26,6 +26,7 @@ public class TestStepRenderer : IHtmlSectionRenderer
         var stepBuilder = new StringBuilder();
 
         stepBuilder.AppendLine(MarkupHelper.HorizontalLine());
+        stepBuilder.AppendLine("<div class='report-step'>");
         stepBuilder.AppendLine(MarkupHelper.Paragraph($"Status: {step.Status}"));
         stepBuilder.AppendLine(MarkupHelper.Paragraph($"Step id: {step.Id}"));
         stepBuilder.AppendLine(MarkupHelper.Paragraph($"Step instruction: {step.Instruction}"));
@@ -38,7 +39,8 @@ public class TestStepRenderer : IHtmlSectionRenderer
                 stepBuilder.AppendLine(MarkupHelper.ImageBase64(evidence.Base64StrinScreenshot, evidence.FileName));
             }
         }
-        stepBuilder.AppendLine(MarkupHelper.HorizontalLine());
+
+        stepBuilder.AppendLine("</div>");
 
         return stepBuilder.ToString();
     }
