@@ -8,7 +8,7 @@ namespace QaReporter.Tests
 {
     public  class HtmlWriterTests
     {
-        private ReportRecord _record;
+        private ReportRecord? _record;
 
         [SetUp]
         public void SetUp()

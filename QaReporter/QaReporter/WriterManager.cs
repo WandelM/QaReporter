@@ -68,7 +68,7 @@ public class WriterManager : IWriterManager
     public async Task SaveReportsAsync(ReportRecord reportRecord)
     {
         if (!_writers.Any())
-            throw new Exception("No Writers registered");
+            throw new InvalidOperationException("No Writers registered");
 
         foreach (var writer in _writers)
             await writer.WriteAsync(reportRecord);

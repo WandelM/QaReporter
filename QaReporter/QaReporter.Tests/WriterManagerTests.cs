@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using QaReporter.Abstraction;
 using System;
+using System.Threading.Tasks;
 
 namespace QaReporter.Tests;
 
@@ -34,7 +35,7 @@ public class WriterManagerTests
     [Test]
     public void WhenWriterIsNullWriterIsRegisteredExceptionShouldBeThrown()
     {
-        IRecordWriter nullRecordWriter = null;
+        IRecordWriter? nullRecordWriter = null;
 
         Assert.Throws<NullReferenceException>(() => manager.Register(nullRecordWriter));
     }
@@ -63,13 +64,5 @@ public class WriterManagerTests
         manager.Register(mockWriterTertiary);
 
         Assert.That(manager.Writers.Count, Is.EqualTo(2));
-    }
-
-    [Test]
-    public void WhenSavesReportsWithoutWritersAttachesExceptionShouldBeThrown()
-    {
-        ReportRecord record = new ReportRecord(new Models.TestInfo("Key1", "Test1"));
-
-        Assert.Throws<Exception>(() => manager.SaveReportsAsync(record));
     }
 }

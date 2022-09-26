@@ -3,13 +3,13 @@
 /// <summary>
 /// Helper class for rendering basic html tags used in the report
 /// </summary>
-public static class MarkupHelper
+public class MarkupService
 {
     /// <summary>
     /// Renders <hr/> tag
     /// </summary>
     /// <returns></returns>
-    public static string HorizontalLine()
+    public string HorizontalLine()
     {
         return "<hr/>";
     }
@@ -19,7 +19,7 @@ public static class MarkupHelper
     /// </summary>
     /// <param name="content"></param>
     /// <returns></returns>
-    public static string Paragraph(string content)
+    public string Paragraph(string content)
     {
         return $"<p>{content}</p>";
     }
@@ -30,7 +30,7 @@ public static class MarkupHelper
     /// <param name="id"></param>
     /// <param name="content"></param>
     /// <returns></returns>
-    public static string Heading1(string id, string content)
+    public string Heading1(string id, string content)
     {
         return $"<h1 id=\"{id}\">{content}</h1>";
     }
@@ -41,7 +41,7 @@ public static class MarkupHelper
     /// <param name="base64String"></param>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    public static string ImageBase64(string base64String, string? fileName = null)
+    public string ImageBase64(string base64String, string? fileName = null)
     {
         return $"<img alt=\"{fileName}\" src=\"data:image/png;base64,{base64String}\"/>";
     }

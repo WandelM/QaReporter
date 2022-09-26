@@ -11,15 +11,15 @@ public class TestInfoRenderer : IHtmlSectionRenderer
     public string Render()
     {
         var testInfoBuilder = new StringBuilder();
-        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Test Key: {TestKey}"));
-        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Test Name: {TestName}"));
-        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Start Date: {StartDate})"));
-        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Finish Date: {EndDate}"));
-        testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"Status: {Status}"));
+        testInfoBuilder.AppendLine(_markupService.Paragraph($"Test Key: {TestKey}"));
+        testInfoBuilder.AppendLine(_markupService.Paragraph($"Test Name: {TestName}"));
+        testInfoBuilder.AppendLine(_markupService.Paragraph($"Start Date: {StartDate})"));
+        testInfoBuilder.AppendLine(_markupService.Paragraph($"Finish Date: {EndDate}"));
+        testInfoBuilder.AppendLine(_markupService.Paragraph($"Status: {Status}"));
 
         if (AdditionalInfo != null)
             foreach (var item in AdditionalInfo)
-                testInfoBuilder.AppendLine(MarkupHelper.Paragraph($"{item.Key}: {item.Value}"));
+                testInfoBuilder.AppendLine(_markupService.Paragraph($"{item.Key}: {item.Value}"));
 
 
         return testInfoBuilder.ToString();
@@ -38,8 +38,10 @@ public class TestInfoRenderer : IHtmlSectionRenderer
         EndDate = endDate;
         Status = status;
         AdditionalInfo = additionalInfo;
+        _markupService = new MarkupService();
     }
 
+    private readonly MarkupService _markupService;
     public string TestKey { get; }
     public string TestName { get; }
     public DateTime StartDate { get; }

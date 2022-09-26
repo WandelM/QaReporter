@@ -10,7 +10,7 @@ public class TestInfoBuilder
         if (string.IsNullOrEmpty(TestKey) || string.IsNullOrEmpty(TestName) || StartDate == null || EndDate == null || string.IsNullOrEmpty(Status))
             throw new Exception("Please provide all values needed");
 
-        var testInfoRenderer = new TestInfoRenderer(TestKey, TestName, StartDate, EndDate, Status, AdditionalInfo);
+        var testInfoRenderer = new TestInfoRenderer(TestKey, TestName, StartDate.Value, EndDate.Value, Status, AdditionalInfo);
         return testInfoRenderer.Render();
     }
 
@@ -55,10 +55,10 @@ public class TestInfoBuilder
         return new TestInfoBuilder();
     }
 
-    private string TestKey;
-    private string TestName;
-    private DateTime StartDate;
-    private DateTime EndDate;
-    private string Status;
+    private string? TestKey;
+    private string? TestName;
+    private DateTime? StartDate;
+    private DateTime? EndDate;
+    private string? Status;
     private IReadOnlyDictionary<string, string>? AdditionalInfo;
 }

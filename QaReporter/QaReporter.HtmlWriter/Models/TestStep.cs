@@ -5,7 +5,7 @@
     /// </summary>
     public class TestStep
     {
-        public TestStep(string id, string instruction, string expectedResult, IReadOnlyList<StepScreenshot> stepScreenshots = null)
+        public TestStep(string id, string instruction, string expectedResult, IReadOnlyList<StepScreenshot>? stepScreenshots = null)
         {
             Id = id;
             Instruction = instruction;

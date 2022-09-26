@@ -27,6 +27,11 @@ public class HtmlReportRenderer: IHtmlSectionRenderer
     /// </summary>
     public string CssStyles { get; }
 
+    /// <summary>
+    /// Helper service for markups
+    /// </summary>
+    private readonly MarkupService _markupService;
+
     public string Render()
     {
         return $@"
@@ -40,8 +45,8 @@ public class HtmlReportRenderer: IHtmlSectionRenderer
                     <style>{CssStyles}</style>
                 </head>
                 <body>
-                    {MarkupHelper.Heading1("test-title", TestName)}
-                    {MarkupHelper.HorizontalLine()}
+                    {_markupService.Heading1("test-title", TestName)}
+                    {_markupService.HorizontalLine()}
                     <div id = 'test-info'>
                         {TestInfo}
                     </div>
@@ -58,5 +63,6 @@ public class HtmlReportRenderer: IHtmlSectionRenderer
         Steps = stepsTemplate;
         TestInfo = testInoTemplate;
         CssStyles = cssStyles;
+        _markupService = new MarkupService();
     }
 }
